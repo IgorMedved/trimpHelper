@@ -46,6 +46,20 @@ public class Point
 	{
 		mY = pY;
 	}
-
+	
+	public Point add (Point rhs)
+	{
+		return new Point (mX + rhs.mX, mY+ rhs.mY);
+	}
+	
+	public Point substract(Point rhs)
+	{
+		return new Point (mX - rhs.mX, mY - rhs.mY);
+	}
+	
+	public static Point copy (Point pCopy)
+	{
+		return new Point (pCopy.mX, pCopy.mY);
+	}
 }
 

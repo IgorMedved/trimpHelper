@@ -9,6 +9,7 @@ import com.sun.jna.platform.win32.User32;
 import com.sun.jna.platform.win32.WinDef.HWND;
 import com.sun.jna.platform.win32.WinUser;
 
+
 // https://github.com/twall/jna#readme
 //    you need 2 jars : jna-3.5.1.jar and platform-3.5.1.jar
 
