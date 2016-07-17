@@ -1,28 +1,41 @@
 package main;
 
 import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.event.InputEvent;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import com.sun.jna.Native;
-import com.sun.jna.platform.win32.User32;
-import com.sun.jna.platform.win32.WinDef.HWND;
-import com.sun.jna.platform.win32.WinUser;
+import javax.swing.Timer;
 
 
 // https://github.com/twall/jna#readme
 //    you need 2 jars : jna-3.5.1.jar and platform-3.5.1.jar
 
-public class App
+public class App implements ActionListener
 {
-
-	private final static String TRIMP1 = "Trimps 3.51 - Mozilla Firefox";
-	private final static String TRIMP2 = "Play Trimps, a free online game on Kongregate - Mozilla Firefox";
+	private Timer mTimer;
+	private Utility mUtility;
+	public App() throws AWTException
+	{
+		mUtility = new Utility();
+		System.out.println("myApp constructor is run");
+		mTimer = new Timer (1000, this);
+		
+	}
+	
+	public void startTimer()
+	{
+		mTimer.start();
+		System.out.println("Timer is started");
+	}
 
 	public static void main(String[] args) throws AWTException
 	{
+		 App myApp = new App();
+		 myApp.startTimer();
+		
+		
 
-		HWND hwnd = User32.INSTANCE.FindWindow("MozillaWindowClass", TRIMP2); // window
+		/*HWND hwnd = User32.INSTANCE.FindWindow("MozillaWindowClass", TRIMP2); // window
 																				// title
 		Robot robot = new Robot();
 
@@ -66,6 +79,16 @@ public class App
 
 			}
 			robot.delay(60000);
-		}
+		}*/
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e)
+	{
+		System.out.println("actionPerformed is run");
+		
+		if (mUtility!=null)
+			mUtility.refresh();
+		
 	}
 }

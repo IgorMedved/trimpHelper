@@ -67,7 +67,7 @@ public class GeneralPoints
 	public static final Point SCIENCE_BUTTON_BOTTOM = new Point (285,350);
 	
 	
-	
+	// population panel
 	
 	public static final Point TURKIMP_PANEL_TOP = new Point (475, 170);
 	public static final Point TURKIMP_PANEL_BOTTOM = new Point (515, 200);
@@ -220,18 +220,28 @@ public class GeneralPoints
 	public static final Point CREATE_INFO_BOTTOM = new Point (585, 410);
 	
 	
-	public static Point interpolate (Point originalTop, Point originalBottom, Point screenTop, Point screenBottom, int percentileLenght, int percentile)
+	public static Point interpolate (Point originalTop, Point originalBottom, Point screenTop, Point screenBottom, int percentileLength, int percentileHeight)
 	{
-		Point point = null;
 		
 		int originalLength = - TOP_LEFT.getX() + BOTTOM_RIGHT.getX();
 		int originalHeight = - TOP_LEFT.getY() + BOTTOM_RIGHT.getY();
 		
-		int legth = screenBottom.getX() - screenTop.getX();
+		int length = screenBottom.getX() - screenTop.getX();
 		int height = screenBottom.getY() - screenTop.getY();
 		
+		int originalX = originalTop.getX() + (originalBottom.getX() - originalTop.getX())*percentileLength/100;
+		int originalY = originalTop.getY() + (originalBottom.getY() - originalTop.getY())*percentileHeight/100;
 		
-		return point;
+		int x = screenTop.getX()+ originalX*length/originalLength;
+		int y = screenTop.getY()+ originalY*height/originalHeight;
+		
+		
+		return new Point (x, y);
+	}
+	
+	public static Point interpolate(Point originalTop, Point originalBottom, Point screenTop, Point screenBottom)
+	{
+		return interpolate (originalTop, originalBottom, screenTop, screenBottom, 50, 50);
 	}
 	
 }
