@@ -48,7 +48,6 @@ public class GeneralPoints
 	public static final Point SCIENCE_PANEL_TOP_LEFT = new Point (200, 265);
 	public static final Point SCIENCE_PANEL_BOTTOM_RIGHT = new Point (380, 365);
 	
-	
 	public static final Point FOOD_BUTTON_TOP = new Point (30,235);
 	public static final Point FOOD_BUTTON_BOTTOM = new Point (105,260);
 	public static final Point FOOD_BAR_TOP = new Point (25,215);
@@ -65,7 +64,6 @@ public class GeneralPoints
 	
 	public static final Point SCIENCE_BUTTON_TOP = new Point (205,330);
 	public static final Point SCIENCE_BUTTON_BOTTOM = new Point (285,350);
-	
 	
 	// population panel
 	

@@ -1,16 +1,15 @@
 package main;
 
 import java.awt.AWTException;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Timer;
+import java.util.TimerTask;
 
-import javax.swing.Timer;
 
 
-// https://github.com/twall/jna#readme
-//    you need 2 jars : jna-3.5.1.jar and platform-3.5.1.jar
 
-public class App implements ActionListener
+
+public class App  
 {
 	private Timer mTimer;
 	private Utility mUtility;
@@ -18,13 +17,25 @@ public class App implements ActionListener
 	{
 		mUtility = new Utility();
 		System.out.println("myApp constructor is run");
-		mTimer = new Timer (1000, this);
+		mTimer = new Timer ();
 		
 	}
 	
 	public void startTimer()
 	{
-		mTimer.start();
+		TimerTask task = new TimerTask(){
+
+			@Override
+			public void run()
+			{
+				if (mUtility!=null)
+					mUtility.refresh();
+				
+			}
+			
+		};
+		
+		mTimer.schedule(task, 100, 10000);
 		System.out.println("Timer is started");
 	}
 
@@ -32,6 +43,8 @@ public class App implements ActionListener
 	{
 		 App myApp = new App();
 		 myApp.startTimer();
+		 
+		 
 		
 		
 
@@ -82,13 +95,5 @@ public class App implements ActionListener
 		}*/
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e)
-	{
-		System.out.println("actionPerformed is run");
-		
-		if (mUtility!=null)
-			mUtility.refresh();
-		
-	}
+	
 }

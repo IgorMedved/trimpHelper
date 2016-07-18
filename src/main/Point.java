@@ -15,12 +15,18 @@ public class Point
 	public static final Point BARN = new Point (160,620);
 	
 	
+	public Point ()
+	{
+		set (0,0);
+	}
 	
 	public Point (int x, int y)
 	{
 		set (x,y);
 	}
 	
+	
+
 	public void set (int x, int y)
 	{
 		mX= x;
