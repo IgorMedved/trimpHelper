@@ -90,7 +90,24 @@ public class Utility
 	{
 		if (checkWood())
 		{
-			pressButton (GeneralPoints.inerpolate)
+			pressButton (GeneralPoints.interpolate(GeneralPoints.WOOD_BAR_TOP, GeneralPoints.WOOD_BAR_BOTTOM, mScreenTop, mScreenBottom));
+		}
+		
+		if (checkFood())
+		{
+			pressButton(GeneralPoints.interpolate(GeneralPoints.FOOD_BAR_TOP, GeneralPoints.FOOD_BAR_BOTTOM, mScreenTop, mScreenBottom));
+			
+		}
+		
+		if (checkStone())
+		{
+			pressButton(GeneralPoints.interpolate(GeneralPoints.STONE_BAR_TOP, GeneralPoints.STONE_BAR_BOTTOM, mScreenTop, mScreenBottom));
 		}
 	}
+	
+	private boolean checkWood()
+	{
+		Point woodBarTop = General
+	}
+
 }
